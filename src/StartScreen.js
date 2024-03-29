@@ -10,8 +10,8 @@ function StartScreen() {
       <div className="nav_contents">
         <img
           className="nav_logo"
-          src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
-          alt=""
+          src="./netflix_logo.png"
+          alt="Netflix"
         ></img>
         <button
           className="start_nav_button"

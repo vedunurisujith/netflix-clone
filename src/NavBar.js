@@ -1,23 +1,40 @@
 import React, { useEffect, useState } from "react";
 import "./nav.css";
 import { FcMenu } from "react-icons/fc";
-import { icons } from "react-icons";
-function NavBar() {
-  const [show, showHandler] = useState(false);
-  // const downSlide = () => {
-  //   if (window.scrollY > 100) {
-  //     showHandler(true);
-  //   } else {
-  //     showHandler(false);
-  //   }
-  // };
-  useEffect(() => {
-    window.addEventListener("scroll", showHandler);
-    return () => {
-      window.removeEventListener("scroll", showHandler);
-    };
-  }, []);
 
+function NavBar() {
+//   const [show, showHandler] = useState(false);
+//   // const downSlide = () => {
+//   //   if (window.scrollY > 100) {
+//   //     showHandler(true);
+//   //   } else {
+//   //     showHandler(false);
+//   //   }
+//   // };
+  // useEffect(() => {
+  //   window.addEventListener("scroll", showHandler);
+  //   return () => {
+  //     window.removeEventListener("scroll", showHandler);
+  //   };
+  // }, []);
+
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+ 
+  const controlNavbar = () => {
+    if (window.scrollY > lastScrollY) { 
+      setShow(false); 
+    } else { 
+      setShow(true);  
+    }
+    setLastScrollY(window.scrollY); 
+ };
+ useEffect(() => {
+    window.addEventListener('scroll', controlNavbar);
+    return () => {
+       window.removeEventListener('scroll', controlNavbar);
+    };
+ }, [lastScrollY]);
 
 
   return (
@@ -25,13 +42,10 @@ function NavBar() {
       <div className="nav_contents">
         <img
           className="nav_logo"
-          src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
+          src= "./netflix_logo.png"
           alt=""
         ></img>
         <div className="nav_list">
-        <div>
-        <FcMenu/>
-        </div>
 
           <a href="" className="nav_list_objects">Home</a>
           <a href="" className="nav_list_objects">TV Shows</a>

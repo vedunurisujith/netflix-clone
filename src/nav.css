@@ -1,6 +1,6 @@
 .nav {
   position: fixed;
-  top: 0;
+  /* top: 0; */
   width: 100%;
   padding: 20px;
   z-index: auto;
@@ -9,15 +9,24 @@
   transition: all 0.5s;
 }
 
+.nav_contents {
+  display: flex;
+  top: 10px;
+  justify-content: space-between;
+} 
+
 .nav_list {
   position: fixed;
+  visibility: hidden;
   display: flex;
+  top: 30px;
   margin-left: 10%;
   margin-right: 2%;
+  z-index: auto;;
   align-items: space-around;
   color: white;
 @media only screen and (min-width: 600px) {
-  display: none;
+  /* display: none; */
 }
 }
 
@@ -31,26 +40,32 @@
 }
 .nav_black {
   background-color: #111;
+
+  .nav_logo {
+    visibility: visible;
+  }
+
+  .nav_list{
+    visibility: visible
+  };
 }
 .nav_logo {
-  position: relative;
-  top: 2px;
+  /* position: fixed; */
+  top: 15px;
+  visibility: hidden;
   left: 0;
   width: 80px;
-  z-index: 111;
+  z-index: auto;
   object-fit: contain;
   padding-left: 20px;
   cursor: pointer;
 }
 .nav_avator {
   cursor: pointer;
+  top: 30px;
   width: 30px;
   right: 30px;;
 }
 
-/* .nav_contents {
-  display: flex;
-  justify-content: space-between;
-} */
 
 
